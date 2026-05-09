@@ -31,3 +31,8 @@ def listar_empresas():
     # Faz uma consulta real no nosso banco de dados do Supabase
     resposta = supabase.table("empresas").select("*").execute()
     return {"empresas": resposta.data}
+@app.get("/areas")
+def listar_areas():
+    # Busca as áreas criadas no banco
+    resposta = supabase.table("areas").select("*").execute()
+    return {"areas": resposta.data}
